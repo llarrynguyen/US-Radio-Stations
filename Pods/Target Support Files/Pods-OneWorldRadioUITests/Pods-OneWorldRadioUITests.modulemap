@@ -1,0 +1,6 @@
+framework module Pods_OneWorldRadioUITests {
+  umbrella header "Pods-OneWorldRadioUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

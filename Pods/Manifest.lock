@@ -1,0 +1,43 @@
+PODS:
+  - FRadioPlayer (0.1.15)
+  - ProgressHUD (2.60)
+  - Realm (3.12.0):
+    - Realm/Headers (= 3.12.0)
+  - Realm/Headers (3.12.0)
+  - RealmSwift (3.12.0):
+    - Realm (= 3.12.0)
+  - Spring (1.0.6)
+
+DEPENDENCIES:
+  - FRadioPlayer
+  - ProgressHUD
+  - Realm (~> 3.12.0)
+  - RealmSwift (~> 3.12.0)
+  - Spring (from `https://github.com/MengTo/Spring.git`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - FRadioPlayer
+    - ProgressHUD
+    - Realm
+    - RealmSwift
+
+EXTERNAL SOURCES:
+  Spring:
+    :git: https://github.com/MengTo/Spring.git
+
+CHECKOUT OPTIONS:
+  Spring:
+    :commit: fafd0b2e8d4d46405bd86fa7ba84bb7f73a20b13
+    :git: https://github.com/MengTo/Spring.git
+
+SPEC CHECKSUMS:
+  FRadioPlayer: 0ad8b63756c3597af3c4a2672334c5dc22e026e4
+  ProgressHUD: 4e4efbaf4f5de8bd32e0c4c3b6644a90ea1a8c3e
+  Realm: cdaef23c4ddb36ab1ddffed23f5a7f3332fc5585
+  RealmSwift: 5576324033f0aa5ef1e0a839a3da2281dff47a7f
+  Spring: 3d113f14575ef79aec9c5f906dfa4f5001c03254
+
+PODFILE CHECKSUM: eec56b9c475ec553273ef041d68d6c4864384c91
+
+COCOAPODS: 1.5.3

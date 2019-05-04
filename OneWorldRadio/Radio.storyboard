@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Now Playing View-->
+        <scene sceneID="ufC-wZ-h7g">
+            <objects>
+                <viewController storyboardIdentifier="SPNowPlayingViewController" id="vXZ-lx-hvc" userLabel="Now Playing View" customClass="SPNowPlayingViewController" customModule="OneWorldRadio" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="uXf-Wr-UiK" userLabel="Background Image View">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="obn-8m-awZ" userLabel="AlbumArt" customClass="SpringImageView" customModule="OneWorldRadio" customModuleProvider="target">
+                                <rect key="frame" x="80" y="67" width="254" height="254"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="obn-8m-awZ" secondAttribute="height" multiplier="1:1" id="0o9-ZN-zY3"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="180" id="hCD-tK-vVP"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="WmY-ug-Nhz" userLabel="Controls Stack View">
+                                <rect key="frame" x="99" y="351" width="216" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W6n-gy-z3a" userLabel="PreviousButton">
+                                        <rect key="frame" x="0.0" y="0.0" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="f7r-qa-s7e"/>
+                                            <constraint firstAttribute="height" constant="45" id="qIK-DO-Pi2"/>
+                                        </constraints>
+                                        <state key="normal" image="btn-previous">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="selected" image="btn-pause"/>
+                                        <connections>
+                                            <action selector="previousPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QGd-YE-aem"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7t-tN-2wp" userLabel="PauseButton">
+                                        <rect key="frame" x="57" y="0.0" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="0QP-4Y-L0R"/>
+                                            <constraint firstAttribute="height" constant="45" id="9ls-Nq-FcF"/>
+                                        </constraints>
+                                        <state key="normal" image="btn-play">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="selected" image="btn-pause"/>
+                                        <connections>
+                                            <action selector="playingPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="NEV-en-273"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uXK-bZ-bdt" userLabel="PauseButton">
+                                        <rect key="frame" x="114" y="0.0" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="ebX-Zd-lOX"/>
+                                            <constraint firstAttribute="height" constant="45" id="vqL-YC-gUW"/>
+                                        </constraints>
+                                        <state key="normal" image="btn-stop">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="selected" image="btn-pause"/>
+                                        <connections>
+                                            <action selector="stopPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ER7-uh-Svz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rdn-tm-QKv" userLabel="NextButton">
+                                        <rect key="frame" x="171" y="0.0" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="45" id="ClR-id-HJ9"/>
+                                            <constraint firstAttribute="width" constant="45" id="vPQ-1T-f9U"/>
+                                        </constraints>
+                                        <state key="normal" image="btn-next">
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="selected" image="btn-pause"/>
+                                        <connections>
+                                            <action selector="nextPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xQb-Ex-byA"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="a3Z-1t-AAA" userLabel="Volume Stack View">
+                                <rect key="frame" x="12" y="408" width="390" height="60"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vol-min" translatesAutoresizingMaskIntoConstraints="NO" id="Kmj-vC-DQe">
+                                        <rect key="frame" x="0.0" y="22" width="18" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="3WZ-S6-HvY"/>
+                                            <constraint firstAttribute="width" constant="18" id="RKf-B6-PfD"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view alpha="0.49999999999999961" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zuj-rb-EKQ" userLabel="Volume View">
+                                        <rect key="frame" x="26" y="0.0" width="338" height="60"/>
+                                        <subviews>
+                                            <slider hidden="YES" opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iFC-eW-7WA">
+                                                <rect key="frame" x="6" y="15" width="326" height="31"/>
+                                            </slider>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="iFC-eW-7WA" firstAttribute="leading" secondItem="zuj-rb-EKQ" secondAttribute="leading" constant="8" id="BZ4-Pc-7uL"/>
+                                            <constraint firstAttribute="height" constant="60" id="Gxj-C9-4bj"/>
+                                            <constraint firstItem="iFC-eW-7WA" firstAttribute="centerY" secondItem="zuj-rb-EKQ" secondAttribute="centerY" id="cB3-fz-PPX"/>
+                                            <constraint firstAttribute="trailing" secondItem="iFC-eW-7WA" secondAttribute="trailing" constant="8" id="wUp-7m-b6c"/>
+                                        </constraints>
+                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vol-max" translatesAutoresizingMaskIntoConstraints="NO" id="Ygz-Co-31f">
+                                        <rect key="frame" x="372" y="22" width="18" height="16"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="16" id="B40-zU-UTb"/>
+                                            <constraint firstAttribute="width" constant="18" id="SJ7-bf-Pl2"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="x1d-d3-klM"/>
+                                </constraints>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="8xJ-4F-WCE" userLabel="Labels Stack View">
+                                <rect key="frame" x="12" y="480" width="390" height="50"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="KC8-ZG-rx5" userLabel="Song Label" customClass="SpringLabel" customModule="OneWorldRadio" customModuleProvider="target">
+                                        <rect key="frame" x="170" y="0.0" width="50" height="50"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RA9-OX-Xr1" userLabel="Station Desc Label">
+                                <rect key="frame" x="80" y="289" width="254" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="wJP-em-2hX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" alignment="bottom" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Ub6-am-LP5">
+                                <rect key="frame" x="376" y="697" width="26" height="26"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3BY-Uw-fd7" userLabel="Share Button">
+                                        <rect key="frame" x="0.0" y="0.0" width="26" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="26" id="OdL-jY-2i8"/>
+                                            <constraint firstAttribute="height" constant="26" id="WCg-3H-2ht"/>
+                                        </constraints>
+                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <state key="normal" image="share">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="shareButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="R3w-2U-Wb8"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DbW-Xc-lot">
+                                <rect key="frame" x="354" y="20" width="27" height="24"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="27" id="06x-Wq-aeV"/>
+                                    <constraint firstAttribute="height" constant="24" id="2gh-S9-WaY"/>
+                                </constraints>
+                                <state key="normal" image="icons8-x_filled"/>
+                                <connections>
+                                    <action selector="closeTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="EQ4-mV-igP"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HIA-ka-yZr">
+                                <rect key="frame" x="20" y="618" width="374" height="52"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="Nyp-e2-nz4"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
+                                <state key="normal" title="Add To My Favorites"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="4"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addToCollectionTapped:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="xxY-UX-bvs"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="obn-8m-awZ" firstAttribute="leading" secondItem="RA9-OX-Xr1" secondAttribute="leading" id="4LO-kb-G6v"/>
+                            <constraint firstItem="RA9-OX-Xr1" firstAttribute="top" secondItem="obn-8m-awZ" secondAttribute="bottom" constant="-32" id="5fc-ws-2hz"/>
+                            <constraint firstItem="WmY-ug-Nhz" firstAttribute="top" secondItem="obn-8m-awZ" secondAttribute="bottom" constant="30" id="77z-hi-QGE"/>
+                            <constraint firstItem="DbW-Xc-lot" firstAttribute="top" secondItem="aXI-gd-81R" secondAttribute="top" id="9ds-Ke-0XL"/>
+                            <constraint firstItem="obn-8m-awZ" firstAttribute="top" secondItem="aXI-gd-81R" secondAttribute="top" constant="47" id="9m0-ca-E91"/>
+                            <constraint firstItem="obn-8m-awZ" firstAttribute="leading" secondItem="aXI-gd-81R" secondAttribute="leading" constant="80" id="Ad0-X2-0Fe"/>
+                            <constraint firstItem="HIA-ka-yZr" firstAttribute="leading" secondItem="aXI-gd-81R" secondAttribute="leading" constant="20" id="EPJ-4W-fiB"/>
+                            <constraint firstItem="aXI-gd-81R" firstAttribute="trailing" secondItem="DbW-Xc-lot" secondAttribute="trailing" constant="33" id="FRJ-q9-hTm"/>
+                            <constraint firstItem="8xJ-4F-WCE" firstAttribute="top" secondItem="a3Z-1t-AAA" secondAttribute="bottom" constant="12" id="Rgp-Rr-5X1"/>
+                            <constraint firstItem="aXI-gd-81R" firstAttribute="bottom" secondItem="HIA-ka-yZr" secondAttribute="bottom" constant="66" id="YIK-b2-Jvp"/>
+                            <constraint firstItem="aXI-gd-81R" firstAttribute="trailing" secondItem="8xJ-4F-WCE" secondAttribute="trailing" constant="12" id="a0R-gd-CTo"/>
+                            <constraint firstItem="a3Z-1t-AAA" firstAttribute="top" secondItem="WmY-ug-Nhz" secondAttribute="bottom" constant="12" id="epF-5G-BUS"/>
+                            <constraint firstItem="uXf-Wr-UiK" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="hPm-1B-yKf"/>
+                            <constraint firstItem="aXI-gd-81R" firstAttribute="trailing" secondItem="Ub6-am-LP5" secondAttribute="trailing" constant="12" id="i7g-jR-lvv"/>
+                            <constraint firstItem="8xJ-4F-WCE" firstAttribute="leading" secondItem="aXI-gd-81R" secondAttribute="leading" constant="12" id="iJJ-RH-r0a"/>
+                            <constraint firstItem="aXI-gd-81R" firstAttribute="bottom" secondItem="Ub6-am-LP5" secondAttribute="bottom" constant="13" id="mUU-J5-b4W"/>
+                            <constraint firstItem="aXI-gd-81R" firstAttribute="trailing" secondItem="obn-8m-awZ" secondAttribute="trailing" constant="80" id="mbe-x3-NBX"/>
+                            <constraint firstItem="aXI-gd-81R" firstAttribute="trailing" secondItem="a3Z-1t-AAA" secondAttribute="trailing" constant="12" id="p9p-mf-M9S"/>
+                            <constraint firstItem="a3Z-1t-AAA" firstAttribute="leading" secondItem="aXI-gd-81R" secondAttribute="leading" constant="12" id="sHe-lq-M9M"/>
+                            <constraint firstItem="obn-8m-awZ" firstAttribute="trailing" secondItem="RA9-OX-Xr1" secondAttribute="trailing" id="uX9-xo-4bC"/>
+                            <constraint firstItem="uXf-Wr-UiK" firstAttribute="leading" secondItem="aXI-gd-81R" secondAttribute="leading" id="ukJ-i6-3WQ"/>
+                            <constraint firstItem="Ub6-am-LP5" firstAttribute="leading" secondItem="HIA-ka-yZr" secondAttribute="trailing" constant="-18" id="uuC-gs-aCE"/>
+                            <constraint firstAttribute="bottom" secondItem="uXf-Wr-UiK" secondAttribute="bottom" id="vqi-Me-nfe"/>
+                            <constraint firstItem="aXI-gd-81R" firstAttribute="trailing" secondItem="uXf-Wr-UiK" secondAttribute="trailing" id="wlz-dV-IhI"/>
+                            <constraint firstItem="WmY-ug-Nhz" firstAttribute="centerX" secondItem="kh9-bI-dsS" secondAttribute="centerX" id="xjT-ZW-MWx"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="aXI-gd-81R"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="SubPop Records" id="M1Z-0o-hNV" userLabel="Station Title"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="addToCollectionButton" destination="HIA-ka-yZr" id="wcE-mT-EPa"/>
+                        <outlet property="albumHeightConstraint" destination="hCD-tK-vVP" id="VlU-n5-VPe"/>
+                        <outlet property="albumImageView" destination="obn-8m-awZ" id="13r-WO-VAs"/>
+                        <outlet property="closeButton" destination="DbW-Xc-lot" id="GHI-9W-r1g"/>
+                        <outlet property="nextButton" destination="rdn-tm-QKv" id="VHQ-xc-bpl"/>
+                        <outlet property="playingButton" destination="k7t-tN-2wp" id="ZOi-KR-veF"/>
+                        <outlet property="previousButton" destination="W6n-gy-z3a" id="bKE-rg-HPb"/>
+                        <outlet property="songLabel" destination="KC8-ZG-rx5" id="tNh-3K-qWW"/>
+                        <outlet property="stationDescLabel" destination="RA9-OX-Xr1" id="uAM-NB-RRM"/>
+                        <outlet property="volumeParentView" destination="zuj-rb-EKQ" id="KFg-Rk-y3Q"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1163.768115942029" y="384.78260869565219"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="background" width="320" height="568"/>
+        <image name="btn-next" width="44" height="44"/>
+        <image name="btn-pause" width="44" height="44"/>
+        <image name="btn-play" width="44" height="44"/>
+        <image name="btn-previous" width="44" height="44"/>
+        <image name="btn-stop" width="44" height="44"/>
+        <image name="icons8-x_filled" width="50" height="50"/>
+        <image name="share" width="32" height="32"/>
+        <image name="vol-max" width="16.666666030883789" height="14"/>
+        <image name="vol-min" width="11" height="12.666666984558105"/>
+    </resources>
+</document>

@@ -159,15 +159,6 @@ class SPHomeViewController: UIViewController {
         case 1:
             homeViewModel.selectedCountry =  homeViewModel.countryList[1]
             gSelectedCountry = homeViewModel.countryList[1]
-        case 2:
-            homeViewModel.selectedCountry =  homeViewModel.countryList[2]
-            gSelectedCountry = homeViewModel.countryList[2]
-        case 3:
-            homeViewModel.selectedCountry =  homeViewModel.countryList[3]
-            gSelectedCountry = homeViewModel.countryList[3]
-        case 4:
-            homeViewModel.selectedCountry =  homeViewModel.countryList[4]
-            gSelectedCountry = homeViewModel.countryList[4]
         default:
             break
         }
@@ -333,29 +324,13 @@ extension SPHomeViewController: UICollectionViewDataSource {
             
             switch indexPath.row {
             case 0:
-                cell.stations = homeViewModel.sportStations
-                cell.categoryString = RadioStationCategory.Sports.categoryName
+                cell.stations = homeViewModel.usStations
+                cell.categoryString = RadioStationCategory.US.categoryName
             case 1:
-                cell.stations = homeViewModel.popStations
-                cell.categoryString = RadioStationCategory.Pop.categoryName
-            case 2:
-                cell.stations = homeViewModel.talkStations
-                cell.categoryString = RadioStationCategory.TalkAndNews.categoryName
-            case 3:
-                cell.stations = homeViewModel.countryStations
-                cell.categoryString = RadioStationCategory.Country.categoryName
-            case 4:
-                cell.stations = homeViewModel.rockStations
-                cell.categoryString = RadioStationCategory.Rock.categoryName
-            case 5:
-                cell.stations = homeViewModel.hotStations
-                cell.categoryString = RadioStationCategory.Hot.categoryName
-            case 6:
-                cell.stations = homeViewModel.oldiesStations
-                cell.categoryString = RadioStationCategory.Oldies.categoryName
+                cell.stations = homeViewModel.ukStations
+                cell.categoryString = RadioStationCategory.UK.categoryName
             default:
-                print("no stations here")
-                
+                print("Nothing here")
             }
             
             cell.homeViewModel = self.homeViewModel

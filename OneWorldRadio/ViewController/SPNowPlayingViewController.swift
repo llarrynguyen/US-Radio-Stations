@@ -73,10 +73,10 @@ class SPNowPlayingViewController: UIViewController {
     func favoriteChangeState(isFavorite: Bool?) {
         if isFavorite == true {
             addToCollectionButton.setTitle("Remove From My Favorites", for: .normal)
-            addToCollectionButton.backgroundColor = SPConstants.ColorPaletteHex.smoky.color
+            addToCollectionButton.backgroundColor = .white
         } else {
             addToCollectionButton.setTitle("Add To My Favorites", for: .normal)
-            addToCollectionButton.backgroundColor = SPConstants.ColorPaletteHex.deepOceanBlue.color
+            addToCollectionButton.backgroundColor = SPConstants.ColorPaletteHex.mainBlue.color
             
         }
     }

@@ -22,17 +22,13 @@ class SPHomeViewModel {
 
     
     var stationDict: [String: RadioStation ] = [:]
-    var hotStations: [RadioStation] = []
-    var sportStations: [RadioStation] = []
-    var popStations: [RadioStation] = []
-    var countryStations: [RadioStation] = []
-    var talkStations: [RadioStation] = []
-    var oldiesStations: [RadioStation] = []
-    var rockStations: [RadioStation] = []
+    var usStations: [RadioStation] = []
+    var ukStations: [RadioStation] = []
+   
     
     weak var delegate: SPHomeViewModelProtocol?
     
-    var countryList = ["usa", "uk", "australia", "canada", "nz"]
+    var countryList = ["usa", "uk"]
     
     var selectedCountry = "usa" {
         didSet {
@@ -72,25 +68,11 @@ class SPHomeViewModel {
                 }
                 
                 
-               
                 switch trueCategory {
-                    case .Hot:
-                        self.hotStations.append(station)
-                    case .Sports:
-                        self.sportStations.append(station)
-                    case .Pop:
-                        self.popStations.append(station)
-                    case .Country:
-                        self.countryStations.append(station)
-                    case .Rock:
-                        self.rockStations.append(station)
-                    case .Oldies:
-                        self.oldiesStations.append(station)
-                    case .TalkAndNews:
-                        self.talkStations.append(station)
-        
-                    default:
-                        continue
+                    case .US:
+                        self.usStations.append(station)
+                    case .UK:
+                        self.ukStations.append(station)
                 }
             }
             
@@ -108,17 +90,12 @@ class SPHomeViewModel {
     
     private func resetAllCategories() {
         stationDict = [:]
-        hotStations = []
-        sportStations  = []
-        popStations = []
-        countryStations = []
-        talkStations = []
-        oldiesStations = []
-        rockStations = []
+        usStations = []
+        ukStations  = []
     }
 
     func numberOfCategories() -> Int {
         print("Number of stations \(stations.count)")
-        return 7
+        return 2
     }
 }

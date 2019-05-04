@@ -10,15 +10,11 @@ import UIKit
 
 struct SPConstants {
     struct ColorPaletteHex {
-        static let darkBlue = "192330"
-        static let deepOceanBlue = "424E5F"
+        static let mainBlue = "5900FE"
+        static let pinkLady = "FD5266"
         static let foggySeaBlue = "95B1BB"
-        static let smokyBlue = "81909D"
-        static let shinySkyBlue = "49D8E0"
-        static let smokyGreen = "5D9B95"
-        static let lightSkyBlue = "CEFFFF"
-        static let almostBlack = "000001"
-        static let smoky = "64747D"
+        static let grapeFruitOrange = "FB7D48"
+        static let orangeYellow = "49D8E0"
     }
 }
 

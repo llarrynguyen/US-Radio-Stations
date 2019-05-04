@@ -34,23 +34,23 @@ extension AppColor {
         
         switch self {
         case .mainBackgroud:
-            color = SPConstants.ColorPaletteHex.almostBlack.color
+            color = UIColor.white
         case .tabBar:
-            color = SPConstants.ColorPaletteHex.almostBlack.color
+            color = UIColor.white
         case .disabled:
-            color = SPConstants.ColorPaletteHex.smoky.color
+            color = UIColor.gray
         case .active:
-            color = SPConstants.ColorPaletteHex.shinySkyBlue.color
+            color = SPConstants.ColorPaletteHex.mainBlue.color
         case .itemBackground:
-            color = SPConstants.ColorPaletteHex.deepOceanBlue.color
+            color = SPConstants.ColorPaletteHex.mainBlue.color
         case .buttonBackground:
-            color = SPConstants.ColorPaletteHex.almostBlack.color
+            color = SPConstants.ColorPaletteHex.mainBlue.color
         case .categoryText:
-            color = SPConstants.ColorPaletteHex.lightSkyBlue.color
+            color = UIColor.black
         case .mainText:
-            color = SPConstants.ColorPaletteHex.almostBlack.color
+            color = UIColor.black
         case .bottomViewBackground:
-            color = SPConstants.ColorPaletteHex.foggySeaBlue.color
+            color = UIColor.white
             
         case .custom(let hexValue, let opacity):
             color = hexValue.color.withAlphaComponent(CGFloat(opacity))

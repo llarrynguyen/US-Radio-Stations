@@ -25,7 +25,7 @@ class StationCollectionViewCell: UICollectionViewCell {
     
     func update(station: RadioStation) {
         stationNameLabel.text = station.name
-        stationNameLabel.textColor = SPConstants.ColorPaletteHex.lightSkyBlue.color
+        stationNameLabel.textColor = .black
         stationNameLabel.clipsToBounds = true
         themeImageView.clipsToBounds = true
         let imageUrl = URL(string: station.logo)

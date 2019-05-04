@@ -11,11 +11,11 @@ import UIKit
 class NewsViewReuse: UICollectionReusableView {
 
     @IBOutlet weak var nowPlayingAnimationImageView: UIImageView!
-    @IBOutlet weak var searchButton: UIButton!
+
     @IBOutlet weak var nowPlayingButton: UIButton!
     @IBOutlet weak var segment: UISegmentedControl!
-    @IBOutlet weak var addButton: UIButton!
-    @IBOutlet var bg: UIImageView!
+
+    @IBOutlet weak var stationImageView: UIImageView!
     
     var buttonBar: UIView!
     
@@ -35,7 +35,7 @@ class NewsViewReuse: UICollectionReusableView {
 
         segment.setTitleTextAttributes([
             NSAttributedString.Key.font : UIFont(name: "AvenirNextCondensed-Bold", size: 26),
-            NSAttributedString.Key.foregroundColor: SPConstants.ColorPaletteHex.shinySkyBlue.color
+            NSAttributedString.Key.foregroundColor: SPConstants.ColorPaletteHex.mainBlue.color
             ], for: .selected)
         
 
@@ -44,7 +44,7 @@ class NewsViewReuse: UICollectionReusableView {
         
         buttonBar = UIView()
         buttonBar.translatesAutoresizingMaskIntoConstraints = false
-        buttonBar.backgroundColor = SPConstants.ColorPaletteHex.shinySkyBlue.color
+        buttonBar.backgroundColor = SPConstants.ColorPaletteHex.mainBlue.color
         self.addSubview(buttonBar)
         
        
@@ -75,11 +75,7 @@ class NewsViewReuse: UICollectionReusableView {
     func startNowPlayingAnimation(_ animate: Bool) {
         animate ? nowPlayingAnimationImageView.startAnimating() : nowPlayingAnimationImageView.stopAnimating()
     }
-    
-    @IBAction func addTapped(_ sender: Any) {
-        addClosure?()
-    }
-    
+
     @IBAction func myRadioStationsTapped(_ sender: Any) {
         myCollectionClosure?()
     }
@@ -87,9 +83,6 @@ class NewsViewReuse: UICollectionReusableView {
     @IBAction func goToNowPlaying(_ sender: Any) {
         nowPlayingClosure?()
     }
-    @IBAction func searchTapped(_ sender: Any) {
-        searchClosure?()
-    }
-    
+  
 }
 

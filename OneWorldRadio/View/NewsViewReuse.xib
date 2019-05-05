@@ -60,7 +60,7 @@
                         <constraint firstAttribute="width" constant="40" id="vJS-Vv-ijW"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listen to FM radio station across US and UK" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-lk-bl6">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listen to FM radio stations across US and UK" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-lk-bl6">
                     <rect key="frame" x="16" y="203" width="235" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="nYW-f0-F11"/>

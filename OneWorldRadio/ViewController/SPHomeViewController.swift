@@ -60,7 +60,6 @@ class SPHomeViewController: UIViewController {
        
         radioPlayer.delegate = self
         
-        self.view.translatesAutoresizingMaskIntoConstraints = false
         
         self.navigationItem.title = "Search"
        
@@ -150,6 +149,13 @@ class SPHomeViewController: UIViewController {
         mainCollectionView.alwaysBounceVertical = true
         mainCollectionView.frame = CGRect(x: 0, y: -60, width: self.view.width, height: self.view.height)
         self.view.addSubview(mainCollectionView)
+        
+        NSLayoutConstraint.activate([
+            mainCollectionView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0),
+            mainCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: 0),
+            mainCollectionView.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 0),
+            mainCollectionView.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: 0)
+            ])
         
         self.mainCollectionView = mainCollectionView
     }

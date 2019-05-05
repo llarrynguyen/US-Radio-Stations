@@ -19,11 +19,14 @@ class StationCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpCell() {
-        self.contentView.layer.cornerRadius = 7
+       
         
     }
     
     func update(station: RadioStation) {
+        self.layer.cornerRadius = self.frame.height/2
+        self.clipsToBounds = true
+        
         themeImageView.clipsToBounds = true
         let imageUrl = URL(string: station.logo)
         if let url = imageUrl {

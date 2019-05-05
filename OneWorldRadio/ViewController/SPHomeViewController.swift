@@ -149,7 +149,6 @@ class SPHomeViewController: UIViewController {
         mainCollectionView.isScrollEnabled = true
         mainCollectionView.alwaysBounceVertical = true
         mainCollectionView.frame = CGRect(x: 0, y: -60, width: self.view.width, height: self.view.height)
-        mainCollectionView.translatesAutoresizingMaskIntoConstraints = false
         self.view.addSubview(mainCollectionView)
         
         self.mainCollectionView = mainCollectionView
@@ -442,7 +441,7 @@ extension SPHomeViewController: UICollectionViewDelegateFlowLayout{
         
         if indexPath.row == selectedIndex {
        
-             return CGSize(width: collectionView.bounds.size.width - 32, height: 360)
+             return CGSize(width: collectionView.bounds.size.width - 32, height: 260)
         } else {
            
              return CGSize(width: collectionView.bounds.size.width - 32, height: 240)

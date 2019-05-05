@@ -52,10 +52,10 @@ class HomeCollectionViewCell: UICollectionViewCell {
     lazy var layout : UICollectionViewFlowLayout = {
        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.minimumInteritemSpacing = 5
+        layout.minimumInteritemSpacing = 20
         layout.minimumLineSpacing = 5
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 16)
-        layout.itemSize = CGSize(width: 120, height: 120)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: 80, height: 80)
         return layout
     }()
     
@@ -341,6 +341,15 @@ extension HomeCollectionViewCell: UICollectionViewDataSource {
     }
 }
 
+extension HomeCollectionViewCell : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
+    }
+}
 
 extension HomeCollectionViewCell: RadioPlayerDelegate {
     

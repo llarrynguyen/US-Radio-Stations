@@ -30,12 +30,7 @@ class SPHomeViewModel {
     
     var countryList = ["usa", "uk"]
     
-    var selectedCountry = "usa" {
-        didSet {
-            loadStationsFromJSON()
-        }
-    }
-    
+
     init() {
        
     }
@@ -47,7 +42,7 @@ class SPHomeViewModel {
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         
         // Get the Radio Stations
-        LocalDataManager.getStationDataWithSuccess(country: selectedCountry) { [unowned self](data) in
+        LocalDataManager.getStationDataWithSuccess(country: "usa") { [unowned self](data) in
             
             // Turn off network indicator
             defer {
@@ -59,8 +54,6 @@ class SPHomeViewModel {
             }
             
             for station in jsonArray {
-                let trueCategory: RadioStationCategory = RadioStationCategory.radioTrueCategoryFactory(station: station)
-                
                 if let _ = self.stationDict[station.name] {
                     continue
                 } else {
@@ -68,12 +61,9 @@ class SPHomeViewModel {
                 }
                 
                 
-                switch trueCategory {
-                    case .US:
-                        self.usStations.append(station)
-                    case .UK:
-                        self.ukStations.append(station)
-                }
+              self.usStations.append(station)
+                
+                
             }
             
             DispatchQueue.main.async {
@@ -81,9 +71,53 @@ class SPHomeViewModel {
                     station.write(dataSource: RealmDataPersistence.shared)
                 })
                 
-                self.stations = jsonArray
+                self.stations.append(contentsOf: jsonArray)
             }
             gStations = self.stations   
+            
+        }
+    }
+    
+    func loadStationsFromJSON2() {
+        
+        resetAllCategories()
+        // Turn on network indicator
+        UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        
+        // Get the Radio Stations
+        LocalDataManager.getStationDataWithSuccess(country: "uk") { [unowned self](data) in
+            
+            // Turn off network indicator
+            defer {
+                DispatchQueue.main.async { UIApplication.shared.isNetworkActivityIndicatorVisible = false }
+            }
+            
+            guard let data = data, let jsonArray = try? JSONDecoder().decode([RadioStation].self, from: data)else {
+                return
+            }
+            
+            for station in jsonArray {
+                if let _ = self.stationDict[station.name] {
+                    continue
+                } else {
+                    self.stationDict[station.name] = station
+                }
+                
+                
+                self.ukStations.append(station)
+                
+                
+            }
+            
+            DispatchQueue.main.async {
+                self.stations.forEach({ (station) in
+                    station.write(dataSource: RealmDataPersistence.shared)
+                })
+                
+                self.stations.append(contentsOf: jsonArray)
+              
+            }
+            gStations = self.stations
             
         }
     }
@@ -92,10 +126,12 @@ class SPHomeViewModel {
         stationDict = [:]
         usStations = []
         ukStations  = []
+        stations = []
+    
     }
 
     func numberOfCategories() -> Int {
         print("Number of stations \(stations.count)")
-        return 2
+        return 3
     }
 }

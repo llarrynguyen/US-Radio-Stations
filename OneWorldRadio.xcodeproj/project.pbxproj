@@ -99,6 +99,8 @@
 		D169E27A225C965400410779 /* NewsViewReuse.xib in Resources */ = {isa = PBXBuildFile; fileRef = D169E279225C8A5400410779 /* NewsViewReuse.xib */; };
 		D169E27D225E1E7C00410779 /* StationCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D169E27B225E1E7B00410779 /* StationCollectionViewCell.swift */; };
 		D169E27E225E1E7C00410779 /* StationCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D169E27C225E1E7B00410779 /* StationCollectionViewCell.xib */; };
+		D17EC938227EA8380026E439 /* ButtonCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D17EC936227EA8380026E439 /* ButtonCollectionCell.swift */; };
+		D17EC939227EA8380026E439 /* ButtonCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D17EC937227EA8380026E439 /* ButtonCollectionCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -222,6 +224,8 @@
 		D169E279225C8A5400410779 /* NewsViewReuse.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewsViewReuse.xib; sourceTree = "<group>"; };
 		D169E27B225E1E7B00410779 /* StationCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationCollectionViewCell.swift; sourceTree = "<group>"; };
 		D169E27C225E1E7B00410779 /* StationCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StationCollectionViewCell.xib; sourceTree = "<group>"; };
+		D17EC936227EA8380026E439 /* ButtonCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollectionCell.swift; sourceTree = "<group>"; };
+		D17EC937227EA8380026E439 /* ButtonCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonCollectionCell.xib; sourceTree = "<group>"; };
 		F1856957668217D6E7846805 /* Pods-OneWorldRadio.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OneWorldRadio.release.xcconfig"; path = "Pods/Target Support Files/Pods-OneWorldRadio/Pods-OneWorldRadio.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -500,6 +504,8 @@
 				D169E275225C854100410779 /* NewsViewReuse.swift */,
 				D169E27B225E1E7B00410779 /* StationCollectionViewCell.swift */,
 				D169E27C225E1E7B00410779 /* StationCollectionViewCell.xib */,
+				D17EC936227EA8380026E439 /* ButtonCollectionCell.swift */,
+				D17EC937227EA8380026E439 /* ButtonCollectionCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -679,6 +685,7 @@
 				D169E26F225B334300410779 /* SF-Pro-Text-Medium.otf in Resources */,
 				D169E268225B334300410779 /* SF-Pro-Display-Light.otf in Resources */,
 				D169E0B0225B205200410779 /* usa.json in Resources */,
+				D17EC939227EA8380026E439 /* ButtonCollectionCell.xib in Resources */,
 				D169E22A225B332700410779 /* OneLableOneButtonView.xib in Resources */,
 				D169E072225B205200410779 /* uk.json in Resources */,
 				D169DF6D225B1DF900410779 /* Main.storyboard in Resources */,
@@ -855,6 +862,7 @@
 				D169E1E7225B331100410779 /* UITextField+Extensions.swift in Sources */,
 				D169E1DF225B331100410779 /* UIStoryBoard+Extensions.swift in Sources */,
 				D169E1D5225B331100410779 /* String+Extensions.swift in Sources */,
+				D17EC938227EA8380026E439 /* ButtonCollectionCell.swift in Sources */,
 				D169E1EC225B331600410779 /* SPConstants.swift in Sources */,
 				D169E1AB225B32F800410779 /* Dynamik.swift in Sources */,
 				D169E1A1225B32EF00410779 /* UIAlertAction+Extension.swift in Sources */,
@@ -1044,7 +1052,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.affinne.oneworldradio.OneWorldRadio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.affinne.oneworldradio.SignalRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1063,7 +1071,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.affinne.oneworldradio.OneWorldRadio;
+				PRODUCT_BUNDLE_IDENTIFIER = com.affinne.oneworldradio.SignalRadio;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

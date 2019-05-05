@@ -12,7 +12,7 @@ class NewsView: UIView {
  
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var titleLabel: UILabel!
-    @IBOutlet weak var backgroundImageView: UIImageView!
+   
     
     @IBOutlet var contentView: UIView!
     override init(frame: CGRect) {
@@ -30,7 +30,7 @@ class NewsView: UIView {
         nib.instantiate(withOwner: self, options: nil)
         contentView.pinch(self)
         translatesAutoresizingMaskIntoConstraints = false
-        searchBar.textField?.textColor = .white
+        searchBar.textField?.textColor = .black
         searchBar.placeholder  = "Search radio stations in \(gSelectedCountry)"
         searchBar.showsCancelButton = false
         searchBar.backgroundColor = .clear

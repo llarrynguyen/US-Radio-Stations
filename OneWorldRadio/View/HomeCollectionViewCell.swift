@@ -50,9 +50,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
        let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 5
-        layout.minimumLineSpacing = 0
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: 16)
-        layout.itemSize = CGSize(width: 120, height: self.height)
+        layout.minimumLineSpacing = 5
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 16)
+        layout.itemSize = CGSize(width: 60, height: 60)
         return layout
     }()
     
@@ -77,6 +77,12 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
     
     private func setup() {
+        
+        self.layer.cornerRadius = 10
+        self.contentView.layer.masksToBounds = true
+        self.backgroundColor = .black
+        self.contentView.backgroundColor = .clear
+        
         radioPlayer.delegate = self
         
         do {
@@ -200,8 +206,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
 
     private func setupCategoryLabel() {
-        let label = UILabel(frame: CGRect(x: 16 , y: 0, width: 100, height: 40))
+        let label = UILabel(frame: CGRect(x: 16 , y: 0, width: 100, height: 70))
         label.textColor = .white
+        label.backgroundColor = .black
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(label)
@@ -219,7 +226,9 @@ class HomeCollectionViewCell: UICollectionViewCell {
     private func setupCollectionView(){
        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.backgroundColor = .clear
+        collectionView.backgroundColor = .black
+        collectionView.clipsToBounds = true
+        collectionView.layer.cornerRadius = 10
         
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.isScrollEnabled = true
@@ -273,9 +282,9 @@ extension HomeCollectionViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let station = stations[indexPath.row]
         if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Resources.reusableIdentifiers.stationCell, for: indexPath) as? StationCollectionViewCell {
-            if let label  = cell.stationNameLabel, let theme = cell.themeImageView {
-                cell.update(station: station)
-            }
+           
+            cell.update(station: station)
+            
             return cell
         }
         return UICollectionViewCell()

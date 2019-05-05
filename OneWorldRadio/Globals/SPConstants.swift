@@ -35,11 +35,13 @@ struct Resources {
         static let newsView = "NewsView"
         static let NewsViewReuse = "NewsViewReuse"
         static let stationCell = "stationCell"
+        static let buttonCell = "ButtonCollectionCell"
      
     }
     
     struct NibName {
         static let StationNib = "StationCollectionViewCell"
+        static let buttonNib = "ButtonCollectionCell"
     }
     
     struct Sizes {

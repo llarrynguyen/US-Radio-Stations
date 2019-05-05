@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NewsView" customModule="OneWorldRadio" customModuleProvider="target">
             <connections>
-                <outlet property="backgroundImageView" destination="zvV-S8-cx1" id="tLo-Bq-ETQ"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Gfv-gK-ZQo"/>
                 <outlet property="searchBar" destination="ffl-uJ-0ZA" id="Pok-fL-GL7"/>
                 <outlet property="titleLabel" destination="ytK-ZI-KZY" id="nNu-bY-7e1"/>
@@ -23,14 +22,8 @@
             <rect key="frame" x="0.0" y="0.0" width="305" height="250"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchbg" translatesAutoresizingMaskIntoConstraints="NO" id="zvV-S8-cx1">
-                    <rect key="frame" x="0.0" y="0.0" width="305" height="201"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="201" id="Thf-EZ-MEf"/>
-                    </constraints>
-                </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="AUm-4r-eMh">
-                    <rect key="frame" x="77.5" y="136" width="150" height="35"/>
+                    <rect key="frame" x="16" y="87" width="150" height="35"/>
                     <constraints>
                         <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="35" id="U9X-DX-bky"/>
                         <constraint firstAttribute="height" constant="35" id="Zbf-QS-Pid"/>
@@ -39,7 +32,7 @@
                     <attributedString key="attributedText">
                         <fragment content="RADIO STATIONS">
                             <attributes>
-                                <color key="NSColor" red="1" green="0.99997597932815552" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="NSColor" red="0.20392480492591858" green="0.20391562581062317" blue="0.20392188429832458" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <font key="NSFont" size="27" name="AvenirNextCondensed-DemiBold"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                             </attributes>
@@ -48,7 +41,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ytK-ZI-KZY">
-                    <rect key="frame" x="45" y="167" width="217" height="27"/>
+                    <rect key="frame" x="-9" y="121" width="217" height="27"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="217" id="TvS-7F-mXT"/>
                         <constraint firstAttribute="height" constant="27" id="oO0-wy-YUo"/>
@@ -56,7 +49,7 @@
                     <attributedString key="attributedText">
                         <fragment content="SEARCH">
                             <attributes>
-                                <color key="NSColor" red="1" green="0.99997597932815552" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="NSColor" red="0.20392480492591858" green="0.20391562581062317" blue="0.20392188429832458" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <font key="NSFont" size="26" name="Skia-Regular_Bold"/>
                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                             </attributes>
@@ -65,33 +58,26 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="ffl-uJ-0ZA">
-                    <rect key="frame" x="0.0" y="194" width="305" height="56"/>
+                    <rect key="frame" x="0.0" y="158" width="305" height="56"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <textInputTraits key="textInputTraits"/>
                 </searchBar>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="AUm-4r-eMh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="77.5" id="0yV-ID-Hsb"/>
-                <constraint firstItem="zvV-S8-cx1" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="DQy-mm-k2G"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AUm-4r-eMh" secondAttribute="trailing" constant="77.5" id="FMv-OI-thH"/>
-                <constraint firstItem="ffl-uJ-0ZA" firstAttribute="top" secondItem="zvV-S8-cx1" secondAttribute="bottom" constant="-7" id="FnV-Eq-2Xw"/>
+                <constraint firstItem="AUm-4r-eMh" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="0yV-ID-Hsb"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="AUm-4r-eMh" secondAttribute="trailing" constant="139" id="FMv-OI-thH"/>
                 <constraint firstAttribute="trailing" secondItem="ffl-uJ-0ZA" secondAttribute="trailing" id="OFR-EY-GUs"/>
+                <constraint firstItem="ffl-uJ-0ZA" firstAttribute="top" secondItem="ytK-ZI-KZY" secondAttribute="bottom" constant="10" id="Vdm-cG-Zdj"/>
                 <constraint firstItem="ffl-uJ-0ZA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Wdg-1y-pWk"/>
-                <constraint firstItem="zvV-S8-cx1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="XbN-NF-Lpj"/>
-                <constraint firstItem="ytK-ZI-KZY" firstAttribute="top" secondItem="AUm-4r-eMh" secondAttribute="bottom" constant="-4" id="dc0-zq-yh6"/>
-                <constraint firstItem="ffl-uJ-0ZA" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="dz9-1Z-3js"/>
-                <constraint firstItem="ytK-ZI-KZY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="1" id="i5f-Ar-e4H"/>
-                <constraint firstItem="AUm-4r-eMh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="136" id="lbJ-lH-bzY"/>
-                <constraint firstItem="AUm-4r-eMh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="p0p-ze-5Fn"/>
-                <constraint firstItem="zvV-S8-cx1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="yTO-yy-sRQ"/>
+                <constraint firstItem="ytK-ZI-KZY" firstAttribute="top" secondItem="AUm-4r-eMh" secondAttribute="bottom" constant="-1" id="dc0-zq-yh6"/>
+                <constraint firstItem="ytK-ZI-KZY" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-53" id="i5f-Ar-e4H"/>
+                <constraint firstItem="AUm-4r-eMh" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="87" id="lbJ-lH-bzY"/>
+                <constraint firstItem="AUm-4r-eMh" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-61.5" id="p0p-ze-5Fn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <point key="canvasLocation" x="10.4" y="-139.43028485757122"/>
         </view>
     </objects>
-    <resources>
-        <image name="searchbg" width="5184" height="3456"/>
-    </resources>
 </document>

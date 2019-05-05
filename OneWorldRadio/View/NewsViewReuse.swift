@@ -13,11 +13,11 @@ class NewsViewReuse: UICollectionReusableView {
     @IBOutlet weak var nowPlayingAnimationImageView: UIImageView!
 
     @IBOutlet weak var nowPlayingButton: UIButton!
-    @IBOutlet weak var segment: UISegmentedControl!
+
 
     @IBOutlet weak var stationImageView: UIImageView!
     
-    var buttonBar: UIView!
+    @IBOutlet weak var myCollectionButton: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,33 +25,28 @@ class NewsViewReuse: UICollectionReusableView {
     }
     
     private func setup() {
-        segment.backgroundColor = .clear
-        segment.tintColor = .clear
+       
+        let currentStationImage = UIImage(named: "icons8-radio_filled")
+        currentStationImage?.withRenderingMode(.alwaysOriginal)
         
-        segment.setTitleTextAttributes([
-            NSAttributedString.Key.font : UIFont(name: "AvenirNextCondensed-Bold", size: 26),
-            NSAttributedString.Key.foregroundColor: UIColor.white
-            ], for: .normal)
-
-        segment.setTitleTextAttributes([
-            NSAttributedString.Key.font : UIFont(name: "AvenirNextCondensed-Bold", size: 26),
-            NSAttributedString.Key.foregroundColor: SPConstants.ColorPaletteHex.mainBlue.color
-            ], for: .selected)
         
-
+        stationImageView.tintColor = SPConstants.ColorPaletteHex.mainBlue.color
+        stationImageView.image = currentStationImage
+        stationImageView.layer.cornerRadius = stationImageView.frame.height/2
+        stationImageView.layer.masksToBounds = true
+        stationImageView.contentMode  = .scaleAspectFit
+        stationImageView.borderWidth = 1
+        stationImageView.borderColor = SPConstants.ColorPaletteHex.mainBlue.color
+        
+        let collectionImage = UIImage(named: "icons8-video_paylist_filled")
+        collectionImage?.withRenderingMode(.alwaysOriginal)
+        myCollectionButton.setImage(collectionImage, for: .normal)
+        myCollectionButton.tintColor = SPConstants.ColorPaletteHex.mainBlue.color
+        myCollectionButton.layer.cornerRadius = myCollectionButton.frame.height/2
+        myCollectionButton.imageView?.layer.masksToBounds = true
+        
         createNowPlayingAnimation()
         
-        
-        buttonBar = UIView()
-        buttonBar.translatesAutoresizingMaskIntoConstraints = false
-        buttonBar.backgroundColor = SPConstants.ColorPaletteHex.mainBlue.color
-        self.addSubview(buttonBar)
-        
-       
-        buttonBar.topAnchor.constraint(equalTo: segment.bottomAnchor).isActive = true
-        buttonBar.heightAnchor.constraint(equalToConstant: 5).isActive = true
-        buttonBar.leftAnchor.constraint(equalTo: segment.leftAnchor).isActive = true
-        buttonBar.widthAnchor.constraint(equalTo: segment.widthAnchor, multiplier: 1 / CGFloat(segment.numberOfSegments)).isActive = true
     }
     
     var addClosure: VoidClosureParameter?

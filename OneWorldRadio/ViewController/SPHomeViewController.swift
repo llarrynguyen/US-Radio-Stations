@@ -19,6 +19,7 @@ class SPHomeViewController: UIViewController {
     weak var headerView: NewsViewReuse?
     var nowPlayingImageView: UIImageView!
     
+    private var isUS = true
     private var newChannel = false
    
     let radioPlayer = RadioPlayer()
@@ -33,7 +34,7 @@ class SPHomeViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        layout.itemSize = CGSize(width: self.view.width , height: 180)
+        layout.itemSize = CGSize(width: self.view.width - 32 , height: 360)
         return layout
     }()
     
@@ -53,6 +54,7 @@ class SPHomeViewController: UIViewController {
         }
         
         homeViewModel?.loadStationsFromJSON()
+        homeViewModel?.loadStationsFromJSON2()
        
         radioPlayer.delegate = self
         
@@ -70,6 +72,9 @@ class SPHomeViewController: UIViewController {
         self.mainCollectionView.delegate = self
         self.mainCollectionView.dataSource = self
         self.mainCollectionView.register(UINib(nibName: Resources.reusableIdentifiers.NewsViewReuse, bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: Resources.reusableIdentifiers.NewsViewReuse)
+        
+         self.mainCollectionView.register(UINib(nibName: Resources.reusableIdentifiers.buttonCell, bundle: nil), forCellWithReuseIdentifier:  Resources.reusableIdentifiers.buttonCell)
+        
         
         self.mainCollectionView.register(HomeCollectionViewCell.self, forCellWithReuseIdentifier: Resources.reusableIdentifiers.searchCell)
         
@@ -92,6 +97,10 @@ class SPHomeViewController: UIViewController {
         for station in viewModel.stations  {
             if let playingUrl = url?.absoluteString, station.url == playingUrl {
                 headerDesc = station.name
+                if let logo = station.logo as? String {
+                    self.headerView?.stationImageView.download(from: URL(string: logo)!, contentMode: .scaleAspectFit, placeholder: nil, completionHandler: nil)
+                }
+                
             }
         }
         
@@ -104,6 +113,7 @@ class SPHomeViewController: UIViewController {
         }
         
         self.headerView?.nowPlayingButton.setTitle(headerDesc, for: .normal)
+       
   
     }
     
@@ -142,33 +152,14 @@ class SPHomeViewController: UIViewController {
         self.mainCollectionView = mainCollectionView
     }
     
-    @IBAction func segmentChanged(_ sender: Any) {
-        
-        if headerView != nil {
-            headerView!.buttonBar.frame.origin.x = (headerView!.frame.width / CGFloat(headerView!.segment.numberOfSegments)) * CGFloat(headerView!.segment.selectedSegmentIndex)
-        }
-        
-        ProgressHUD.show()
-        
-        guard let homeViewModel = homeViewModel else {return}
-        switch headerView?.segment.selectedSegmentIndex
-        {
-        case 0:
-            homeViewModel.selectedCountry =  homeViewModel.countryList[0]
-            gSelectedCountry = homeViewModel.countryList[0]
-        case 1:
-            homeViewModel.selectedCountry =  homeViewModel.countryList[1]
-            gSelectedCountry = homeViewModel.countryList[1]
-        default:
-            break
-        }
-        
+    @IBAction func countryChanged(_ sender: Any) {
+   
     }
     
     private func setupPullToRefresh() {
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh", attributes: [.foregroundColor: UIColor.white])
-        refreshControl.backgroundColor = .black
-        refreshControl.tintColor = .white
+        refreshControl.backgroundColor = .white
+        refreshControl.tintColor = .gray
         refreshControl.addTarget(self, action: #selector(refresh), for: .valueChanged)
         mainCollectionView.addSubview(refreshControl)
     }
@@ -313,36 +304,55 @@ extension SPHomeViewController: SPHomeViewModelProtocol {
 
 extension SPHomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return homeViewModel?.numberOfCategories() ?? 7
+        return homeViewModel?.numberOfCategories() ?? 3
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Resources.reusableIdentifiers.searchCell, for: indexPath) as? HomeCollectionViewCell {
-            guard let homeViewModel = self.homeViewModel else {
-                return UICollectionViewCell()
+        
+        if indexPath.row == 2 {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Resources.reusableIdentifiers.buttonCell, for: indexPath) as? ButtonCollectionCell {
+                cell.searchClosure = { [weak self] in
+                    self?.tabBarController?.selectedIndex = 1
+                }
+                
+                cell.myFavoritesClosure = { [ weak self] in
+                    self?.tabBarController?.selectedIndex = 2
+                    
+                }
+                
+                return cell
             }
-            
-            switch indexPath.row {
-            case 0:
-                cell.stations = homeViewModel.usStations
-                cell.categoryString = RadioStationCategory.US.categoryName
-            case 1:
-                cell.stations = homeViewModel.ukStations
-                cell.categoryString = RadioStationCategory.UK.categoryName
-            default:
-                print("Nothing here")
+        } else {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Resources.reusableIdentifiers.searchCell, for: indexPath) as? HomeCollectionViewCell {
+                guard let homeViewModel = self.homeViewModel else {
+                    return UICollectionViewCell()
+                }
+                
+                switch indexPath.row {
+                case 0:
+                    cell.stations = self.isUS ? homeViewModel.usStations : homeViewModel.ukStations
+                    cell.categoryString = self.isUS ? RadioStationCategory.US.categoryName : RadioStationCategory.UK.categoryName
+                case 1:
+                    cell.stations = self.isUS ? homeViewModel.ukStations : homeViewModel.usStations
+                    cell.categoryString = self.isUS ? RadioStationCategory.UK.categoryName : RadioStationCategory.US.categoryName
+                    
+                    
+                default:
+                    print("Nothing here")
+                }
+                
+                cell.homeViewModel = self.homeViewModel
+                
+                cell.stationSelectVoidClosure = { [weak self] in
+                    let station = self?.homeViewModel?.stations[indexPath.row]
+                    self?.radioPlayer.station =  station
+                    self?.nowPlayingBarButtonPressed()
+                    self?.newChannel = false
+                }
+                return cell
             }
-            
-            cell.homeViewModel = self.homeViewModel
-            
-            cell.stationSelectVoidClosure = { [weak self] in
-                let station = self?.homeViewModel?.stations[indexPath.row]
-                self?.radioPlayer.station =  station
-                self?.nowPlayingBarButtonPressed()
-                self?.newChannel = false
-            }
-            return cell
         }
+
         return UICollectionViewCell()
     }
     
@@ -358,7 +368,7 @@ extension SPHomeViewController: UICollectionViewDelegate {
         let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: Resources.reusableIdentifiers.NewsViewReuse, for: indexPath)
             view.backgroundColor = UIColor.white
         self.headerView = view as? NewsViewReuse
-        self.headerView?.segment.addTarget(self, action: #selector(segmentChanged(_:)), for: .valueChanged)
+    
         self.headerView?.nowPlayingClosure = { [weak self] in
             self?.newChannel = false
             self?.radioPlayer.station = currentGlobalStation
@@ -390,8 +400,10 @@ extension SPHomeViewController: UICollectionViewDelegate {
 extension SPHomeViewController: UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        return CGSize(width: collectionView.bounds.size.width, height: 170)
+        if indexPath.row == 2 {
+             return CGSize(width: collectionView.bounds.size.width - 32, height: 120)
+        }
+        return CGSize(width: collectionView.bounds.size.width - 32, height: 240)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -407,7 +419,7 @@ extension SPHomeViewController: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 250)
+        return CGSize(width: self.view.frame.width, height: 200)
     }
     
 }

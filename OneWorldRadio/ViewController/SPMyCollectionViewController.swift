@@ -112,7 +112,6 @@ class SPMyCollectionViewController: UIViewController {
         
         self.topView = topView
         self.topView.titleLabel.text = "MY COLLECTION"
-        self.topView.backgroundImageView.image = UIImage(named: "mycollectionbg")
         self.topView.searchBar.placeholder = "Search in your collection..."
         self.topView.searchBar.delegate = self
     }

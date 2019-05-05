@@ -11,7 +11,7 @@ import UIKit
 class StationCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var themeImageView: UIImageView!
     
-    @IBOutlet weak var stationNameLabel: UILabel!
+ 
     override func awakeFromNib() {
         super.awakeFromNib()
         setUpCell()
@@ -19,14 +19,11 @@ class StationCollectionViewCell: UICollectionViewCell {
     }
     
     private func setUpCell() {
-        self.layer.cornerRadius = 4
+        self.contentView.layer.cornerRadius = 7
         
     }
     
     func update(station: RadioStation) {
-        stationNameLabel.text = station.name
-        stationNameLabel.textColor = .black
-        stationNameLabel.clipsToBounds = true
         themeImageView.clipsToBounds = true
         let imageUrl = URL(string: station.logo)
         if let url = imageUrl {

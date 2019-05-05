@@ -330,9 +330,15 @@ extension SPHomeViewController: UICollectionViewDataSource {
                 
                 switch indexPath.row {
                 case 0:
+                    let h1Image = UIImage(named: "h1")
+                    cell.bgImageView.image = h1Image
+                
                     cell.stations = self.isUS ? homeViewModel.usStations : homeViewModel.ukStations
                     cell.categoryString = self.isUS ? RadioStationCategory.US.categoryName : RadioStationCategory.UK.categoryName
+                   
                 case 1:
+                    let h2Image = UIImage(named: "h2")
+                    cell.bgImageView.image = h2Image
                     cell.stations = self.isUS ? homeViewModel.ukStations : homeViewModel.usStations
                     cell.categoryString = self.isUS ? RadioStationCategory.UK.categoryName : RadioStationCategory.US.categoryName
                     
@@ -415,11 +421,11 @@ extension SPHomeViewController: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets.init(top: Resources.Sizes.halfInset, left: Resources.Sizes.halfInset, bottom: Resources.Sizes.halfInset, right: Resources.Sizes.halfInset)
+        return UIEdgeInsets.init(top: Resources.Sizes.halfInset, left: Resources.Sizes.halfInset, bottom: -50, right: Resources.Sizes.halfInset)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 200)
+        return CGSize(width: self.view.frame.width, height: 220)
     }
     
 }

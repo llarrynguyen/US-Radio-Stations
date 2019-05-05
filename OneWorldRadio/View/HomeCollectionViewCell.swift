@@ -39,6 +39,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     weak var collectionView: UICollectionView!
     weak var label: UILabel!
+    weak var bgImageView: UIImageView!
     
     var categoryString: String = "" {
         didSet {
@@ -63,14 +64,16 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setupBG()
         setupCategoryLabel()
         setupCollectionView()
         setup()
+        
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
+        setupBG()
         setupCategoryLabel()
         setupCollectionView()
         setup()
@@ -206,21 +209,33 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
 
     private func setupCategoryLabel() {
-        let label = UILabel(frame: CGRect(x: 16 , y: 0, width: 100, height: 70))
+        let label = UILabel(frame: CGRect(x: 16 , y: 0, width: 100, height: 100))
         label.textColor = .white
-        label.backgroundColor = .black
+        label.backgroundColor = .clear
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
+        let arrowImage = UIImageView(frame: CGRect(x: label.width - 56, y: 0, width: 40, height: 40))
+        arrowImage.image = UIImage(named: "icons8-expand_arrow_filled")
+        arrowImage.translatesAutoresizingMaskIntoConstraints = false
+        label.addSubview(arrowImage)
         self.addSubview(label)
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
-            label.heightAnchor.constraint(equalToConstant: 40),
+            arrowImage.centerYAnchor.constraint(equalTo: label.centerYAnchor, constant: 0),
+            arrowImage.heightAnchor.constraint(equalToConstant: 30),
+            arrowImage.rightAnchor.constraint(equalTo: label.rightAnchor, constant: -16),
+            arrowImage.widthAnchor.constraint(equalToConstant: 30)
+            ])
+        
+        NSLayoutConstraint.activate([
+            label.topAnchor.constraint(equalTo: self.topAnchor, constant: -20),
+            label.heightAnchor.constraint(equalToConstant: 80),
             label.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -16),
             label.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 16)
             ])
         
         self.label = label
+        
     }
     
     private func setupCollectionView(){
@@ -250,7 +265,29 @@ class HomeCollectionViewCell: UICollectionViewCell {
             collectionView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0)
         ])
         
-       self.collectionView = collectionView
+    self.collectionView = collectionView
+    self.collectionView.isHidden = true
+    }
+    
+    private func setupBG(){
+        
+        let imageView = UIImageView()
+        imageView.clipsToBounds = true
+        imageView.layer.cornerRadius = 8
+        
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+    
+        
+        self.addSubview(imageView)
+        
+        NSLayoutConstraint.activate([
+            imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 0),
+            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
+            imageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 0),
+            imageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: 0)
+            ])
+        
+        self.bgImageView = imageView
     }
     
     override func layoutSubviews() {

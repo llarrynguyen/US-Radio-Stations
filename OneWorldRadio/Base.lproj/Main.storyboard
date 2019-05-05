@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--My Collection View Controller-->
+        <!--Favorites-->
         <scene sceneID="m7U-vf-fsH">
             <objects>
                 <viewController id="DEZ-6y-aaW" customClass="SPMyCollectionViewController" customModule="OneWorldRadio" customModuleProvider="target" sceneMemberID="viewController">
@@ -20,14 +20,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9pK-1h-X1u"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="icons8-invitation_filled" id="gLf-6e-SnF"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" image="icons8-invitation_filled" id="gLf-6e-SnF"/>
                     <navigationItem key="navigationItem" id="WEQ-Rv-JOi"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="We6-VV-4Co" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3173.913043478261" y="-36.830357142857139"/>
         </scene>
-        <!--Search View Controller-->
+        <!--Search-->
         <scene sceneID="rqM-Tr-bp2">
             <objects>
                 <viewController id="LnE-n1-GIR" customClass="SPSearchViewController" customModule="OneWorldRadio" customModuleProvider="target" sceneMemberID="viewController">
@@ -37,14 +37,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="xVx-dg-IZP"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="icons8-search_filled" id="Ivp-NA-Jy4"/>
+                    <tabBarItem key="tabBarItem" title="Search" image="icons8-search_filled" id="Ivp-NA-Jy4"/>
                     <navigationItem key="navigationItem" id="oyI-ed-Pxz"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5zH-Ae-Ldz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3920.289855072464" y="-699.77678571428567"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="c8K-6u-wFa">
             <objects>
                 <viewController id="MPg-VI-h2c" customClass="SPHomeViewController" customModule="OneWorldRadio" customModuleProvider="target" sceneMemberID="viewController">
@@ -54,7 +54,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="6Og-1g-kLr"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="icons8-home_filled" id="T4b-LR-y5M"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="icons8-home_filled" id="T4b-LR-y5M"/>
                     <navigationItem key="navigationItem" id="xhu-ad-H4G"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kSu-dQ-qYg" userLabel="First Responder" sceneMemberID="firstResponder"/>

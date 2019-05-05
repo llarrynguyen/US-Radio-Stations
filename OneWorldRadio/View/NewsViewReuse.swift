@@ -57,7 +57,7 @@ class NewsViewReuse: UICollectionReusableView {
     func createNowPlayingAnimation() {
         nowPlayingAnimationImageView.image = UIImage(named: "NowPlayingBars-3")
         nowPlayingAnimationImageView.autoresizingMask = []
-        nowPlayingAnimationImageView.tintColor = .orange
+        nowPlayingAnimationImageView.tintColor = .black
         nowPlayingAnimationImageView.contentMode = UIView.ContentMode.center
         
         nowPlayingAnimationImageView.animationImages = AnimationFrames.createFrames()

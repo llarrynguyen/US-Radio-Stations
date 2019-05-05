@@ -45,6 +45,10 @@ class NewsViewReuse: UICollectionReusableView {
         myCollectionButton.layer.cornerRadius = myCollectionButton.frame.height/2
         myCollectionButton.imageView?.layer.masksToBounds = true
         
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(tapOnImageIcon))
+        stationImageView.addGestureRecognizer(tap)
+        
         createNowPlayingAnimation()
         
     }
@@ -76,6 +80,10 @@ class NewsViewReuse: UICollectionReusableView {
     }
     
     @IBAction func goToNowPlaying(_ sender: Any) {
+        nowPlayingClosure?()
+    }
+    
+    @objc func tapOnImageIcon(_ sender: Any) {
         nowPlayingClosure?()
     }
   

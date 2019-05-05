@@ -19,6 +19,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     
     weak var nowPlayingViewController: SPNowPlayingViewController?
     private var newChannel = false
+    var isExpand = false
     
     let radioPlayer = RadioPlayer()
     
@@ -36,6 +37,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
     }
     
     var stationSelectVoidClosure: VoidClosureParameter?
+    var searchClosure: VoidClosureParameter?
     
     weak var collectionView: UICollectionView!
     weak var label: UILabel!
@@ -53,7 +55,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         layout.minimumInteritemSpacing = 5
         layout.minimumLineSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 10, right: 16)
-        layout.itemSize = CGSize(width: 60, height: 60)
+        layout.itemSize = CGSize(width: 120, height: 120)
         return layout
     }()
     
@@ -214,10 +216,17 @@ class HomeCollectionViewCell: UICollectionViewCell {
         label.backgroundColor = .clear
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
-        let arrowImage = UIImageView(frame: CGRect(x: label.width - 56, y: 0, width: 40, height: 40))
-        arrowImage.image = UIImage(named: "icons8-expand_arrow_filled")
+        let arrowImage = UIImageView(frame: CGRect(x: label.width - 30, y: 0, width: 40, height: 40))
+        
+        arrowImage.image = UIImage(named: "icons8-search_filled")
         arrowImage.translatesAutoresizingMaskIntoConstraints = false
+        arrowImage.isUserInteractionEnabled = true
+        let searchImageTap = UITapGestureRecognizer(target: self, action: #selector(searchOnCellTap))
+        
+        arrowImage.addGestureRecognizer(searchImageTap)
+        searchImageTap.cancelsTouchesInView = false
         label.addSubview(arrowImage)
+        label.isUserInteractionEnabled = true
         self.addSubview(label)
         
         NSLayoutConstraint.activate([
@@ -288,6 +297,10 @@ class HomeCollectionViewCell: UICollectionViewCell {
             ])
         
         self.bgImageView = imageView
+    }
+    
+    @objc func searchOnCellTap(_ sender: Any) {
+        searchClosure?()
     }
     
     override func layoutSubviews() {

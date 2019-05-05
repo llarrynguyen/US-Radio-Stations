@@ -18,6 +18,8 @@ class SPHomeViewController: UIViewController {
     weak var nowPlayingViewController: SPNowPlayingViewController?
     weak var headerView: NewsViewReuse?
     var nowPlayingImageView: UIImageView!
+   
+    private var selectedIndex: Int = -1
     
     private var isUS = true
     private var newChannel = false
@@ -99,6 +101,7 @@ class SPHomeViewController: UIViewController {
                 headerDesc = station.name
                 if let logo = station.logo as? String {
                     self.headerView?.stationImageView.download(from: URL(string: logo)!, contentMode: .scaleAspectFit, placeholder: nil, completionHandler: nil)
+                    self.headerView?.stationImageView.isUserInteractionEnabled = true
                 }
                 
             }
@@ -328,6 +331,14 @@ extension SPHomeViewController: UICollectionViewDataSource {
                     return UICollectionViewCell()
                 }
                 
+                if indexPath.row == selectedIndex    {
+                    cell.collectionView.isHidden = false
+                    cell.bgImageView.isHidden = true
+                } else {
+                    cell.bgImageView.isHidden = false
+                    cell.collectionView.isHidden = true
+                }
+                
                 switch indexPath.row {
                 case 0:
                     let h1Image = UIImage(named: "h1")
@@ -354,6 +365,10 @@ extension SPHomeViewController: UICollectionViewDataSource {
                     self?.radioPlayer.station =  station
                     self?.nowPlayingBarButtonPressed()
                     self?.newChannel = false
+                }
+                
+                cell.searchClosure = { [weak self] in
+                    self?.tabBarController?.selectedIndex = 1
                 }
                 return cell
             }
@@ -399,7 +414,22 @@ extension SPHomeViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        if selectedIndex == indexPath.row {
+            self.selectedIndex = -1
+        } else {
+             self.selectedIndex = indexPath.row
+        }
+       
+        
+        UIView.animate(withDuration: 1, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5, options: [.curveEaseInOut], animations: {
+              self.mainCollectionView.reloadData()
+
+        }, completion: nil)
+      
     }
+    
+   
+    
 
 }
 
@@ -409,7 +439,16 @@ extension SPHomeViewController: UICollectionViewDelegateFlowLayout{
         if indexPath.row == 2 {
              return CGSize(width: collectionView.bounds.size.width - 32, height: 120)
         }
-        return CGSize(width: collectionView.bounds.size.width - 32, height: 240)
+        
+        if indexPath.row == selectedIndex {
+       
+             return CGSize(width: collectionView.bounds.size.width - 32, height: 360)
+        } else {
+           
+             return CGSize(width: collectionView.bounds.size.width - 32, height: 240)
+        }
+        
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

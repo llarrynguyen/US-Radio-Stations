@@ -28,7 +28,7 @@ class SPMyCollectionViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: -16)
-        layout.itemSize = CGSize(width: (self.view.width - 24)/3, height: 170)
+        layout.itemSize = CGSize(width: (self.view.width - 24)/3, height: (self.view.width - 24)/3)
         return layout
     }()
     
@@ -58,6 +58,9 @@ class SPMyCollectionViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         topView.searchBar.placeholder = "Search radio stations in your collection"
+        topView.searchBar.textField?.clearButtonMode = .never
+        topView.searchBar.becomeFirstResponder()
+        
     }
     
     deinit {
@@ -263,6 +266,7 @@ extension SPMyCollectionViewController: UISearchBarDelegate {
         
     }
     
+    
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         self.view.endEditing(true)
     }
@@ -270,6 +274,7 @@ extension SPMyCollectionViewController: UISearchBarDelegate {
     func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
         return true
     }
+
 }
 
 

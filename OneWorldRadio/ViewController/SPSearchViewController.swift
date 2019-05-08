@@ -26,7 +26,7 @@ class SPSearchViewController: UIViewController {
         layout.minimumInteritemSpacing = 0
         layout.scrollDirection = .vertical
         layout.sectionInset = UIEdgeInsets(top: 0, left: 16, bottom: 0, right: -16)
-        layout.itemSize = CGSize(width: (self.view.width - 32)/2, height: 170)
+        layout.itemSize = CGSize(width: (self.view.width - 40)/2, height: (self.view.width - 40)/2)
         return layout
     }()
     
@@ -59,6 +59,7 @@ class SPSearchViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         topView.searchBar.placeholder = "Search radio stations in \(gSelectedCountry)"
+        topView.searchBar.textField?.clearButtonMode = .never
         topView.searchBar.becomeFirstResponder()
     }
     

@@ -447,10 +447,10 @@ extension SPHomeViewController: UICollectionViewDelegateFlowLayout{
         
         if indexPath.row == selectedIndex {
        
-             return CGSize(width: collectionView.bounds.size.width - 32, height: 260)
+             return CGSize(width: collectionView.bounds.size.width - 32, height: 220)
         } else {
            
-             return CGSize(width: collectionView.bounds.size.width - 32, height: 240)
+             return CGSize(width: collectionView.bounds.size.width - 32, height: 220)
         }
         
        
@@ -469,7 +469,7 @@ extension SPHomeViewController: UICollectionViewDelegateFlowLayout{
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: self.view.frame.width, height: 220)
+        return CGSize(width: self.view.frame.width, height: 200)
     }
     
 }

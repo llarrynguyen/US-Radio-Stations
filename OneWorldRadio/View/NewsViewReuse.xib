@@ -23,17 +23,17 @@
                     </constraints>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="19"/>
                     <state key="normal">
-                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="titleColor" red="0.75488215684890747" green="0.20377230644226074" blue="0.21559184789657593" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </state>
                     <connections>
                         <action selector="goToNowPlaying:" destination="iN0-l3-epB" eventType="touchUpInside" id="g80-UZ-DrR"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="MNr-gJ-rJb">
-                    <rect key="frame" x="97" y="65" width="131" height="30"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="appIconNew" translatesAutoresizingMaskIntoConstraints="NO" id="MNr-gJ-rJb">
+                    <rect key="frame" x="132.5" y="50" width="60" height="60"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="30" id="eNy-CN-Y1x"/>
-                        <constraint firstAttribute="width" constant="131" id="rzm-BY-Qdc"/>
+                        <constraint firstAttribute="height" constant="60" id="eNy-CN-Y1x"/>
+                        <constraint firstAttribute="width" constant="60" id="rzm-BY-Qdc"/>
                     </constraints>
                 </imageView>
                 <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icons8-radio_filled" translatesAutoresizingMaskIntoConstraints="NO" id="PJ5-hX-KEw">
@@ -60,12 +60,12 @@
                         <constraint firstAttribute="width" constant="40" id="vJS-Vv-ijW"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listen to FM radio stations across US and UK" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-lk-bl6">
-                    <rect key="frame" x="16" y="203" width="235" height="48"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Listen to radio stations US and UK" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fbT-lk-bl6">
+                    <rect key="frame" x="16" y="203" width="295" height="48"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="48" id="nYW-f0-F11"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
@@ -85,7 +85,7 @@
                 <constraint firstItem="7Qv-hK-Lz5" firstAttribute="top" secondItem="PJ5-hX-KEw" secondAttribute="top" id="q4j-41-R1K"/>
                 <constraint firstItem="hyr-WH-2p7" firstAttribute="centerY" secondItem="ogc-47-d2D" secondAttribute="centerY" id="uX3-gf-NYP"/>
                 <constraint firstItem="fbT-lk-bl6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="wGJ-H1-qeP"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fbT-lk-bl6" secondAttribute="trailing" constant="64" id="xbb-M4-QL1"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="fbT-lk-bl6" secondAttribute="trailing" constant="4" id="xbb-M4-QL1"/>
                 <constraint firstItem="hyr-WH-2p7" firstAttribute="height" secondItem="ogc-47-d2D" secondAttribute="height" id="y1J-XZ-D3c"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -100,8 +100,8 @@
         </view>
     </objects>
     <resources>
+        <image name="appIconNew" width="354" height="354"/>
         <image name="icons8-radio_filled" width="25" height="25"/>
         <image name="icons8-video_paylist_filled" width="75" height="75"/>
-        <image name="logo" width="961" height="218"/>
     </resources>
 </document>

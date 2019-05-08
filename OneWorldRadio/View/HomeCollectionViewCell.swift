@@ -55,7 +55,7 @@ class HomeCollectionViewCell: UICollectionViewCell {
         layout.minimumInteritemSpacing = 20
         layout.minimumLineSpacing = 5
         layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10)
-        layout.itemSize = CGSize(width: 80, height: 80)
+        layout.itemSize = CGSize(width: 60, height: 60)
         return layout
     }()
     
@@ -216,25 +216,11 @@ class HomeCollectionViewCell: UICollectionViewCell {
         label.backgroundColor = .clear
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.translatesAutoresizingMaskIntoConstraints = false
-        let arrowImage = UIImageView(frame: CGRect(x: label.width - 30, y: 0, width: 40, height: 40))
-        
-        arrowImage.image = UIImage(named: "icons8-search_filled")
-        arrowImage.translatesAutoresizingMaskIntoConstraints = false
-        arrowImage.isUserInteractionEnabled = true
-        let searchImageTap = UITapGestureRecognizer(target: self, action: #selector(searchOnCellTap))
-        
-        arrowImage.addGestureRecognizer(searchImageTap)
-        searchImageTap.cancelsTouchesInView = false
-        label.addSubview(arrowImage)
+       
+       
         label.isUserInteractionEnabled = true
         self.addSubview(label)
         
-        NSLayoutConstraint.activate([
-            arrowImage.centerYAnchor.constraint(equalTo: label.centerYAnchor, constant: 0),
-            arrowImage.heightAnchor.constraint(equalToConstant: 30),
-            arrowImage.rightAnchor.constraint(equalTo: label.rightAnchor, constant: -16),
-            arrowImage.widthAnchor.constraint(equalToConstant: 30)
-            ])
         
         NSLayoutConstraint.activate([
             label.topAnchor.constraint(equalTo: self.topAnchor, constant: -20),

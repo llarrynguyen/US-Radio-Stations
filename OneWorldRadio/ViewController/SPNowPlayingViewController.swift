@@ -72,10 +72,10 @@ class SPNowPlayingViewController: UIViewController {
     
     func favoriteChangeState(isFavorite: Bool?) {
         if isFavorite == true {
-            addToCollectionButton.setTitle("Remove From My Favorites", for: .normal)
-            addToCollectionButton.backgroundColor = .white
+            
+            addToCollectionButton.backgroundColor = .gray
         } else {
-            addToCollectionButton.setTitle("Add To My Favorites", for: .normal)
+          
             addToCollectionButton.backgroundColor = SPConstants.ColorPaletteHex.mainBlue.color
             
         }
@@ -290,7 +290,7 @@ class SPNowPlayingViewController: UIViewController {
     }
     
     @IBAction func shareButtonPressed(_ sender: UIButton) {
-        let songToShare = "I'm listening to \(currentTrack.title) on \(currentStation.name) via Swift Radio Pro"
+        let songToShare = "I'm listening to \(currentTrack.title) on \(currentStation.name)"
         let activityViewController = UIActivityViewController(activityItems: [songToShare, currentTrack.artworkImage!], applicationActivities: nil)
         activityViewController.popoverPresentationController?.sourceRect = CGRect(x: view.center.x, y: view.center.y, width: 0, height: 0)
         activityViewController.popoverPresentationController?.sourceView = view
